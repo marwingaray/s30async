@@ -1,0 +1,12 @@
+
+<section *ngIf="username && lastname && email" class="m-5 border p-4">
+    <h4>Mi perfil</h4>
+    <ul>
+        <li><h5>Nombre de usuario: <b>{{username}}</b></h5></li>
+        <li><h5>Apellidos de usuario: <b>{{lastname}}</b></h5></li>
+        <li><h5>Correo electronico: <b>{{email}}</b></h5></li>
+    </ul>
+</section>
+<section *ngIf="!username || !lastname || !email" class="m-5 p-4">
+    <h5>Ruta incompleta</h5>
+</section>

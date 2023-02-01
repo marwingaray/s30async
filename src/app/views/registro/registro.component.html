@@ -1,0 +1,60 @@
+<!-- <app-header></app-header> -->
+<div class="alert alert-success" *ngIf="save">Registro guardado</div>
+<section class="container py-5 h-100">
+    <section class="row d-flex justify-content-center align-items-center h-100">
+      <section class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <section class="card shadow-2-strong border-dark" style="border-radius: 5px">
+          <section class="card-body px-5 text-center">
+            <h3 class="mb-2">Registro</h3>
+            <form [formGroup]="registroform">
+                <section>
+                    <mat-form-field appearance="fill">
+                        <label>Nombres</label>
+                        <input matInput formControlName="nombres" minlength="6" type="text" class="form-control " id="nombres">
+                    </mat-form-field>
+                </section>
+                <section>
+                    <mat-form-field appearance="fill">
+                        <label>Usuario</label>
+                        <input matInput formControlName="usuario" minlength="6" type="text" class="form-control " id="username">
+                    </mat-form-field>
+                </section>
+                <section>
+                    <mat-form-field appearance="fill">
+                        <label>Contraseña</label>
+                        <input matInput formControlName="password" minlength="6" type="password" class="form-control" id="password">
+                    </mat-form-field>
+                </section>
+
+                <mat-form-field appearance="fill">
+                    <input class="btn btn-warning" [disabled]="registroform.invalid" (click)="EnviarMensaje()" value="iniciar sesion">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <section *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+                        <section *ngIf="nombres?.errors?.['required']" class="alert alert-success">
+                            Es requerido
+                        </section>
+                    </section>
+                    <section *ngIf="usuario?.invalid && (usuario?.dirty || usuario?.touched)">
+                        <section *ngIf="usuario?.errors?.['required']" class="alert alert-success">
+                            Es requerido
+                        </section>
+                    </section>
+                    <section *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                        <section *ngIf="password?.errors?.['required']" class="alert alert-success">
+                            Es requerido
+                        </section>
+                        
+                    </section>
+                </mat-form-field>
+            </form>
+            <section>
+                <!-- {{errorLogin}} -->
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+  
+<!-- <app-footer></app-footer> -->
